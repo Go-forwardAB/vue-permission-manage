@@ -1,5 +1,5 @@
 import { getTokenA, getTokenR } from '@/utils/token'
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import { handleTokenExpired } from '@/utils/handleTokenExpired'
 import Layout from '@/components/layout/index.vue'
 
@@ -76,7 +76,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    // history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 })
 

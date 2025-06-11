@@ -25,7 +25,6 @@ import { filterVisibleMenus } from '@/composables/filterVisibleMenus'
 const router = useRouter()
 const useTabs = useTabsStore()
 const useMenus = useMenusStore()
-
 const activeMenu = computed({
     get: () => useTabs.activeTab || '/',
     set: (val) => (useTabs.activeTab = val),
