@@ -14,6 +14,7 @@ const reload = process.env.RELOAD_SW === 'true'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/vue-perssion-manage/', 
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
