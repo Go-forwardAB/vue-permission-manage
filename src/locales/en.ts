@@ -1,0 +1,27 @@
+export default {
+    login: {
+        title: 'Login',
+        username: 'Username',
+        password: 'Password',
+        captcha: 'captcha',
+        remember: 'Remember me',
+        forgot: 'Forgot password?',
+        button: 'Login',
+        rules: {
+            username: 'Please input username',
+            usernameLen: 'Length should be 3 to 5',
+            usernameAuth: 'Please enter the correct username',
+            password: 'Please input password',
+            passwordLen:
+                'The password should be 6 to 18 characters long, including both letters and numbers',
+            passwordAuth: 'Please enter the correct password',
+            captcha: 'Please input captcha',
+            captchaLen: 'It must be a four-digit number',
+            captchaAuth: 'Please enter the correct verification code',
+        },
+    },
+    language: {
+        en: 'English',
+        zh: 'Chinese',
+    },
+}

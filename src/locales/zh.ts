@@ -1,0 +1,26 @@
+export default {
+    login: {
+        title: '登录',
+        username: '用户名',
+        password: '密码',
+        captcha: '验证码',
+        remember: '记住我',
+        forgot: '忘记密码？',
+        button: '登录',
+        rules: {
+            username: '请输入用户名',
+            usernameLen: '长度在5到15个字符',
+            usernameAuth: '请输入正确的用户名',
+            password: '请输入密码',
+            passwordLen: '密码需为6-18位，包含字母和数字',
+            passwordAuth: '请输入正确的密码',
+            captcha: '请输入验证码',
+            captchaLen: '必须是4位数字',
+            captchaAuth: '请输入正确的验证码',
+        },
+    },
+    language: {
+        en: '英文',
+        zh: '中文',
+    },
+}
