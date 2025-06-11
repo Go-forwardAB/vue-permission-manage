@@ -1,0 +1,1 @@
+import"../index.js";import{E as t}from"./elementplus-C7q1zps1.js";import{x as o,G as _,z as n,H as r,L as a}from"./vue-Bz1rze_z.js";const c=o({name:"Ceshi",__name:"ceshi",setup(s){return(l,p)=>{const e=t;return n(),_(e,null,{default:r(()=>[a("测试")]),_:1})}}}),f=Object.freeze(Object.defineProperty({__proto__:null,default:c},Symbol.toStringTag,{value:"Module"}));export{f as _};
