@@ -1,32 +1,24 @@
 <template>
     <el-button type="primary" :circle="true" @click="next()">
-        <i
+        <Icon
             v-if="state === 'dark'"
-            i-carbon-moon
-            inline-block
-            align-middle
-            class="align-middle"
+            :icon="carbonMoon"
+            class="inline-block align-middle"
         />
-        <i
+        <Icon
             v-if="state === 'light'"
-            i-carbon-sun
-            inline-block
-            align-middle
-            class="align-middle"
+            :icon="carbonSun"
+            class="inline-block align-middle"
         />
-        <i
+        <Icon
             v-if="state === 'cafe'"
-            i-carbon-cafe
-            inline-block
-            align-middle
-            class="align-middle"
+            :icon="carbonCafe"
+            class="inline-block align-middle"
         />
-        <i
+        <Icon
             v-if="state === 'auto'"
-            i-carbon-laptop
-            inline-block
-            align-middle
-            class="align-middle"
+            :icon="carbonLaptop"
+            class="inline-block align-middle"
         />
     </el-button>
 </template>
@@ -34,6 +26,13 @@
 <script setup lang="ts">
 import { watchEffect } from 'vue'
 import { useColorMode, useCycleList } from '@vueuse/core'
+
+// 引入 Iconify Vue 组件和 Carbon 图标包里的图标
+import { Icon } from '@iconify/vue'
+import carbonMoon from '@iconify/icons-carbon/moon'
+import carbonSun from '@iconify/icons-carbon/sun'
+import carbonCafe from '@iconify/icons-carbon/cafe'
+import carbonLaptop from '@iconify/icons-carbon/laptop'
 
 const mode = useColorMode({
     modes: {

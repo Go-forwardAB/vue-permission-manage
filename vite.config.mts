@@ -10,9 +10,9 @@ import Unocss from 'unocss/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig(({ mode }) => {
-    loadEnv(mode, process.cwd(), '')
+    const env = loadEnv(mode, process.cwd(), '')
 
-    const baseUrl = mode === 'development' ? '' : '/vue-perssion-manage/'
+    const baseUrl = mode === 'development' ? '/' : '/vue-permission-manage/'
 
     return {
         base: baseUrl,
@@ -26,7 +26,6 @@ export default defineConfig(({ mode }) => {
             cssTarget: 'chrome80',
             rollupOptions: {
                 output: {
-                    // 入口文件名（不能变，否则所有打包的 js hash 值全变了）
                     entryFileNames: 'index.js',
                     manualChunks: {
                         vue: ['vue', 'pinia', 'vue-router'],
@@ -47,6 +46,7 @@ export default defineConfig(({ mode }) => {
         },
         plugins: [
             vue(),
+
             AutoImport({
                 imports: [
                     'vue',
@@ -60,6 +60,7 @@ export default defineConfig(({ mode }) => {
                 dts: 'auto-imports.d.ts',
                 vueTemplate: true,
             }),
+
             Components({
                 dts: 'components.d.ts',
                 resolvers: [ElementPlusResolver()],
@@ -70,24 +71,27 @@ export default defineConfig(({ mode }) => {
             VueI18n({
                 runtimeOnly: true,
                 compositionOnly: true,
-                /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-                // @ts-ignore
                 strictMessage: false,
                 fullInstall: true,
-                // do not support ts extension
                 include: [path.resolve(__dirname, 'locales/*.{yaml,yml,json}')],
             }),
+
             VueDevTools(),
         ],
         server: {
             proxy: {
                 '/api': {
-                    // target: 'http://localhost:3000',
-                    target: 'https://vue-perssion-api.onrender.com',
+                    target:
+                        env.VITE_API_URL ||
+                        'https://vue-perssion-api.onrender.com',
                     changeOrigin: true,
                     // rewrite: (path) => path.replace(/^\/api/, '/api'),
                 },
             },
+        },
+        test: {
+            globals: true,
+            environment: 'jsdom',
         },
     }
 })
