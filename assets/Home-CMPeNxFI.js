@@ -1,0 +1,1 @@
+import{v as e,x as o,y as t}from"./vue-DRv-BlT3.js";const _=e({name:"Home",__name:"Home",setup(n){return(r,a)=>(t(),o("div",null,"首页"))}}),c=Object.freeze(Object.defineProperty({__proto__:null,default:_},Symbol.toStringTag,{value:"Module"}));export{c as _};

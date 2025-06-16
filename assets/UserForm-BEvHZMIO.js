@@ -1,1 +1,0 @@
-import{_ as e}from"./UserForm.vue_vue_type_script_setup_true_lang-C7tyoA8J.js";const o=Object.freeze(Object.defineProperty({__proto__:null,default:e},Symbol.toStringTag,{value:"Module"}));export{o as _};
