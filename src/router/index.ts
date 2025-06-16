@@ -5,6 +5,10 @@ import Layout from '@/components/layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
+        path: '/',
+        redirect: '/login',
+    },
+    {
         path: '/login',
         name: 'Login',
         meta: {
@@ -93,15 +97,12 @@ router.beforeEach(async (to, from, next) => {
     const tokenA = getTokenA()
     const tokenR = getTokenR()
 
-    if (to.name === 'Login') return next()
-
-    if (!tokenA && !tokenR && to.name !== 'Layout') {
+    if (!tokenA && !tokenR && to.name !== 'Login') {
         ElMessage.warning('登录已失效，请重新登录')
         await sleep(1000)
         handleTokenExpired()
         return next({ name: 'Login' })
     }
-
     return next()
 })
 
