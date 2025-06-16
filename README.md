@@ -63,7 +63,8 @@
 
 ```bash
 pnpm install
+```
 
 ## 许可证
 
-[MIT @liyibing](./LICENSE)
+[MIT License](./LICENSE)
