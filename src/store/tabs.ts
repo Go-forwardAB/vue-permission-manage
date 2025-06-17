@@ -13,7 +13,7 @@ export const useTabsStore = defineStore('tabs', () => {
     const tabs = ref<{ name?: string; title: string; path: string }[]>(
         storedTabs
             ? JSON.parse(storedTabs)
-            : [{ title: '首页', name: 'Home', path: '/' }],
+            : [{ title: '首页', name: 'Home', path: '/dashboard' }],
     )
     const activeTab = ref(storedActive || '')
     const useMenus = useMenusStore()
@@ -69,7 +69,7 @@ export const useTabsStore = defineStore('tabs', () => {
 
     function $reset() {
         activeTab.value = ''
-        tabs.value = [{ title: '首页', name: 'Home', path: '/' }]
+        tabs.value = [{ title: '首页', name: 'Home', path: '/dashboard' }]
     }
 
     return {

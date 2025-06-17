@@ -5,10 +5,6 @@ import Layout from '@/components/layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/',
-        redirect: '/login',
-    },
-    {
         path: '/login',
         name: 'Login',
         meta: {
@@ -20,9 +16,10 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'Layout',
         component: Layout,
+        redirect: '/dashboard',
         children: [
             //     {
-            //         path: '',
+            //         path: '/dashboard',
             //         name: 'Home',
             //         meta: {
             //             title: '首页',
@@ -93,16 +90,21 @@ function sleep(ms: number) {
     )
 }
 
+let isLogin = false
+
 router.beforeEach(async (to, from, next) => {
     const tokenA = getTokenA()
     const tokenR = getTokenR()
 
     if (!tokenA && !tokenR && to.name !== 'Login') {
-        ElMessage.warning('登录已失效，请重新登录')
-        await sleep(1000)
+        if (isLogin) {
+            ElMessage.warning('登录已失效，请重新登录')
+            await sleep(1000)
+        }
         handleTokenExpired()
         return next({ name: 'Login' })
     }
+    isLogin = true
     return next()
 })
 

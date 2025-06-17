@@ -19,8 +19,8 @@ import { useTabsStore } from '@/store/tabs'
 const router = useRouter()
 const useTabs = useTabsStore()
 const goHome = () => {
-    router.push('/')
-    useTabs.activeTab = '/'
+    router.push('/dashboard')
+    useTabs.activeTab = '/dashboard'
 }
 </script>
 

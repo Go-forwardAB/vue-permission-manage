@@ -44,5 +44,5 @@ function generateNameFromPath(path: string): string {
 function generateRoutePath(path: string): string {
     return !path.includes('Home')
         ? '/' + path.replace(/\.vue$/, '').replace(/\/index$/, '')
-        : '/'
+        : '/dashboard'
 }

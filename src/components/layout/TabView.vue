@@ -10,7 +10,7 @@
             :key="tab.title"
             :label="tab.title"
             :name="tab.path"
-            :closable="tab.path === '/' ? false : true"
+            :closable="tab.path === '/dashboard' ? false : true"
         >
         </el-tab-pane>
     </el-tabs>
@@ -37,7 +37,7 @@ onMounted(() => {
 })
 
 function removeTab(name: TabPaneName) {
-    if (name === '/') return ElMessage.warning('改Tab禁止删除')
+    if (name === '/dashboard') return ElMessage.warning('改Tab禁止删除')
     useTabs.removeTab(name as string)
     const path = activeTab.value
     router.push(path)
